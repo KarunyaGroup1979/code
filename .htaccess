@@ -1,0 +1,10 @@
+RewriteEngine on
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP:X-Forwarded-SSL} !on
+RewriteCond %{HTTP_HOST} ^karunyagroup\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.karunyagroup\.com$
+RewriteRule ^/?$ "https\:\/\/www\.karunyagroup\.com\/" [R=301,L]
+
